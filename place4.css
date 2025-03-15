@@ -65,19 +65,29 @@ nav a:hover {
     transition: box-shadow 0.3s,transform 0.3s ease-in-out;
 }
 
-.con-des
-{
-    height:fit-content;
-    padding: 10px;
-    width:1000px;
-    border: 2px solid black;
+.con-des {
+    max-width: 900px;
+    padding: 20px;
+    border: 2px solid #1e3c72;
     margin-right: 20px;
-    /* border-radius: 10px; */
-    border-color:black;
-    border-top-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
-    background-color: #fff;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ffffff, #ecf0f1);
+    font-size: 18px;
+    line-height: 1.6;
+    /* color: #34495e; */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.con-des:hover {
+    /* transform: scale(1.02); */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3);
+    border: 2px solid  #f1c40f;
+}
+
+.con-des p {
+    margin-bottom: 10px;
 }
 
 
@@ -114,5 +124,9 @@ h2 {
     text-align: center;
     margin: 20px 0;
     font-size: 24px;
+    color: #2c3e50;
+}
+h1
+{
     color: #2c3e50;
 }

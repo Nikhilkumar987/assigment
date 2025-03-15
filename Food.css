@@ -18,7 +18,10 @@ nav {
     gap: 20px;
     padding: 15px;
     background: linear-gradient(90deg, #3498db, #2c3e50);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
@@ -36,6 +39,7 @@ nav a:hover {
     background-color: #f1c40f;
     color: black;
     transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Card Container */
@@ -51,20 +55,38 @@ nav a:hover {
 
 /* Card Styling */
 .card1, .card2 {
-    width: 96%;
+    width: 95%;
+    max-width: 1200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 12px;
-    padding: 15px;
+    border-radius: 15px;
+    padding: 20px;
     background: white;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
 .card1:hover, .card2:hover {
-    transform:scale(1.02);
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.25);
+    transform: scale(1.03);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card1::before, .card2::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.card1:hover::before, .card2:hover::before {
+    opacity: 1;
 }
 
 /* Image Styling */
@@ -74,34 +96,67 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 12px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .card-img img {
     width: 300px;
-    height: 199.8px;
+    height: 200px;
     border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
 }
 
 .card-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
+    transform: scale(1.07);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Card Info */
 .card-info, .card-info2 {
-    width: 70%;
+    width: 68%;
     height: fit-content;
-    padding: 15px;
+    padding: 20px;
     border: 2px solid #1e3c72;
-    border-radius: 12px;
+    border-radius: 15px;
     background: linear-gradient(135deg, #f1f1f1, #e2e2e2);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
 .card-info:hover, .card-info2:hover {
     background: linear-gradient(135deg, #ffffff, #e6e6e6);
     border-color: #f1c40f;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
+    transform: scale(1.02);
+}
+
+.card-info h2, .card-info2 h2 {
+    font-size: 24px;
+    color: #3498db;
+    margin-bottom: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.card-info:hover h2, .card-info2:hover h2 {
+    color: #f1c40f;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .card1, .card2 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-img {
+        margin-bottom: 15px;
+    }
+
+    .card-info, .card-info2 {
+        width: 90%;
+    }
 }
